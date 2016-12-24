@@ -1,0 +1,13 @@
+[Unit]
+Description=Hashicorp Vault Server
+Requires=network-online.target
+After=network-online.target default.target
+
+[Service]
+EnvironmentFile=-/etc/sysconfig/vault
+Restart=no
+ExecStart=/usr/local/sbin/vault server $OPTIONS -config=/etc/vault.d
+# ExecStartPost=/bin/bash -c "for key in $KEYS; do /usr/local/sbin/vault unseal $CERT $key; done"
+
+[Install]
+WantedBy=default.target
