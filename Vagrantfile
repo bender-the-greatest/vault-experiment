@@ -66,8 +66,8 @@ done
 cp -f /vagrant/files/vaultenv /etc/sysconfig/vault
 
 if [ ! -d /var/vault ]; then
-  echo 'Creating vault file store and linking to host machine (this should be switched to Consul at some point)'
-  ln -s /vagrant/vault_store /var/vault
+  echo 'Creating vault file store (this should be switched to Consul at some point)'
+  mkdir -p /var/vault
 fi
 
 echo 'Making sure Vault service is up to date'
